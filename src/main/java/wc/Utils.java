@@ -21,6 +21,7 @@ public class Utils {
             }
         }
         //写出结果
+        bw.write(fileName+","+"字符数"+":");
         bw.write(num.toString());
         //关流
         br.close();
@@ -46,6 +47,7 @@ public class Utils {
                 }
             }
         }
+        bw.write(fileName+","+"单词数"+":");
         bw.write(num.toString());
         br.close();
         bw.close();
@@ -60,6 +62,7 @@ public class Utils {
         while((br.readLine())!=null){
             num++;
         }
+        bw.write(fileName+","+"行数"+":");
         bw.write(num.toString());
         br.close();
         bw.close();
