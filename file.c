@@ -46,5 +46,8 @@ void main()
 
 			for(i=0;i<C.length;i++)
 		printf("%d ",C.data[i]);
+//aaaa
+/*aa
+aa*/
 
 }

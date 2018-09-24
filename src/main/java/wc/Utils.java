@@ -1,6 +1,8 @@
 package wc;
 
 
+import org.junit.Test;
+
 import java.io.*;
 
 /**
@@ -67,5 +69,44 @@ public class Utils {
         br.close();
         bw.close();
         return num;
+    }
+
+    @Test
+    public int markLineNum(String fileName) throws IOException {
+        Integer num = 0;
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt"));
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            line = line.replaceAll("\r\n", "");
+            if (isMark(line)) {
+                num++;
+            }
+        }
+        bw.write(fileName + "," + "空行、代码行、注释行数量" + ":");
+        bw.write(num.toString());
+        br.close();
+        bw.close();
+        return num;
+    }
+
+        private static boolean isMark(String line) {
+        //判断是否为空行
+        if (line == null || line .equals("")) {
+            return true;
+        }
+        //判断是否以”*/“开头
+        if (line.endsWith("*/")) {
+            return true;
+        }
+        //判断是否以”//“开头
+        if (line.startsWith("//")) {
+            return true;
+        }
+        //判断是否以”/*“结尾
+        if (line.startsWith("/*")) {
+            return true;
+        }
+        return false;
     }
 }

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static wc.Utils.charNum;
+
 import static wc.Utils.lineNum;
 import static wc.Utils.wordNum;
 
@@ -43,6 +44,9 @@ public class Main {
                                     break;
                                 case "-l":
                                     System.out.println(lineNum(commands[2]));
+                                    break;
+                                case "-a":
+                                    System.out.println(/*markLineNum(commands[2])*/);
                                     break;
                                 default:
                                     System.out.println("错误，请重新输入");
