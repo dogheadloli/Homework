@@ -26,7 +26,8 @@ public class Main {
 					if (commands.length == 3 || commands.length == 4) {
 						//判断第一个词是否为wc.exe
 						if ("wc.exe".equals(commands[0])) {
-							switch (commands[1]) { //判断第二个词
+							//判断第二个词
+							switch (commands[1]) {
 								case "-c":
 									System.out.println(charNum(commands[2]));
 									break;

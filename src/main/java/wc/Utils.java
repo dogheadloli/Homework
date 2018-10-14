@@ -10,7 +10,7 @@ import java.io.*;
  */
 public class Utils {
 
-	public static int charNum(String fileName) throws IOException {
+	public static Integer charNum(String fileName) throws IOException {
 		Integer num = 0;
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt", true));
@@ -30,7 +30,7 @@ public class Utils {
 		return num;
 	}
 
-	public static int wordNum(String fileName) throws IOException {
+	public static Integer wordNum(String fileName) throws IOException {
 		Integer num = 0;
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt", true));
@@ -43,7 +43,7 @@ public class Utils {
 			words = currentLine.split(" ");
 			for (String word : words) {
 				//去掉空格，和空字符
-				if (!word.equals(" ") && !word.equals("")) {
+				if (!" ".equals(word) && !"".equals(word)) {
 					num++;
 				}
 			}
@@ -55,7 +55,7 @@ public class Utils {
 		return num;
 	}
 
-	public static int lineNum(String fileName) throws IOException {
+	public static Integer lineNum(String fileName) throws IOException {
 		Integer num = 0;
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt", true));
@@ -70,7 +70,7 @@ public class Utils {
 		return num;
 	}
 
-	public static int markLineNum(String fileName) throws IOException {
+	public static Integer markLineNum(String fileName) throws IOException {
 		Integer num = 0;
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt", true));
@@ -92,7 +92,8 @@ public class Utils {
 		File file = new File(floderName);
 		if (file.exists()) {
 			if (!file.isDirectory()) {
-				if (file.getName().endsWith(".c")) {//如果是文件且以.c结尾，就调用相应函数
+				//如果是文件且以.c结尾，就调用相应函数
+				if (file.getName().endsWith(".c")) {
 					switch (command) {
 						case "-c":
 							charNum(file.getPath());
@@ -111,7 +112,7 @@ public class Utils {
 					}
 				}
 			} else {
-				File files[] = file.listFiles();
+				File[] files = file.listFiles();
 				for (File file1 : files) {
 					floder(command, file1.getPath());
 				}
@@ -124,7 +125,7 @@ public class Utils {
 
 	private static boolean isMark(String line) {
 		//判断是否为空行
-		if (line == null || line.equals("")) {
+		if (line == null || "".equals(line)) {
 			return true;
 		}
 		//判断是否以”*/“开头
