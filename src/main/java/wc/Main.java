@@ -19,14 +19,14 @@ public class Main {
 		String[] commands = null;
 		while (true) {
 			try {
-				//判断命令是否为空
-				if ((currentCommand = br.readLine()) != null) {
+				// 判断命令是否为空
+				if (!isNullCommand(currentCommand)) {
 					commands = currentCommand.split(" ");
-					//判断是否为3个词或四个词
-					if (commands.length == 3 || commands.length == 4) {
-						//判断第一个词是否为wc.exe
-						if ("wc.exe".equals(commands[0])) {
-							//判断第二个词
+					// 判断是否为3个词或四个词
+					if (isThreeOrFour(commands)) {
+						// 判断第一个词是否为wc.exe
+						if (isWc(commands)) {
+							// 判断第二个词
 							switch (commands[1]) {
 								case "-c":
 									System.out.println(charNum(commands[2]));
@@ -66,4 +66,44 @@ public class Main {
 			}
 		}
 	}
+
+	/**
+	 * 判断命令是否为空
+	 * @param currentCommand
+	 * @return
+	 */
+	private static boolean isNullCommand(String currentCommand){
+		if(currentCommand==null){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	/**
+	 * 判断是否为三个或四个词
+	 * @param commands
+	 * @return
+	 */
+	private static boolean isThreeOrFour(String [] commands){
+		if(commands.length==3||commands.length==4){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	/**
+	 * //判断第一个词是否为wc.exe
+	 * @param commands
+	 * @return
+	 */
+	private static boolean isWc(String[] commands){
+		if("wc.exe".equals(commands[0])){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
 }
