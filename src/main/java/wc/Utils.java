@@ -119,6 +119,7 @@ public class Utils {
 					}
 				}
 			} else {
+				// 如果是文件夹，则递归调用
 				File[] files = file.listFiles();
 				for (File file1 : files) {
 					floder(command, file1.getPath());
