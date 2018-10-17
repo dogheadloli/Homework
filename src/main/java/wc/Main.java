@@ -19,6 +19,7 @@ public class Main {
 		String[] commands = null;
 		while (true) {
 			try {
+				currentCommand = br.readLine();
 				// 判断命令是否为空
 				if (!isNullCommand(currentCommand)) {
 					commands = currentCommand.split(" ");
@@ -41,7 +42,7 @@ public class Main {
 									System.out.println(markLineNum(commands[2]));
 									break;
 								case "-s":
-									System.out.println(floder(commands[3],commands[2]));
+									System.out.println(floder(commands[3], commands[2]));
 									break;
 								default:
 									System.out.println("格式错误，请重新输入");
@@ -69,39 +70,42 @@ public class Main {
 
 	/**
 	 * 判断命令是否为空
+	 *
 	 * @param currentCommand
 	 * @return
 	 */
-	private static boolean isNullCommand(String currentCommand){
-		if(currentCommand==null){
+	private static boolean isNullCommand(String currentCommand) {
+		if (currentCommand == null) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
 
 	/**
 	 * 判断是否为三个或四个词
+	 *
 	 * @param commands
 	 * @return
 	 */
-	private static boolean isThreeOrFour(String [] commands){
-		if(commands.length==3||commands.length==4){
+	private static boolean isThreeOrFour(String[] commands) {
+		if (commands.length == 3 || commands.length == 4) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
 
 	/**
 	 * //判断第一个词是否为wc.exe
+	 *
 	 * @param commands
 	 * @return
 	 */
-	private static boolean isWc(String[] commands){
-		if("wc.exe".equals(commands[0])){
+	private static boolean isWc(String[] commands) {
+		if ("wc.exe".equals(commands[0])) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
